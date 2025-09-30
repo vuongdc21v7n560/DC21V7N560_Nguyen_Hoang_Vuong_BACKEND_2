@@ -20,3 +20,11 @@ router.route("/:id")
   .delete(contacts.delete);  // Xóa contact theo id
 
 module.exports = router;
+
+const express = require("express");
+const router = express.Router();
+const contactController = require("../controllers/contact.controller");
+
+router.post("/", contactController.create);
+
+module.exports = router;

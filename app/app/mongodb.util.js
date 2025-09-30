@@ -35,3 +35,20 @@ class MongoDB {
 }
 
 module.exports = MongoDB;
+
+const { MongoClient } = require("mongodb");
+
+const uri = "mongodb://localhost:27017"; // hoặc URI bạn đang dùng
+const client = new MongoClient(uri);
+const dbName = "contact-book"; // thay bằng tên database của bạn
+
+async function connect() {
+  await client.connect();
+  console.log("Connected to MongoDB");
+}
+
+module.exports = {
+  connect,
+  client,
+  dbName,
+};
